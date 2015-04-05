@@ -1,5 +1,5 @@
 #coding: utf-8
-from markdown import markdown
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from article.models import Article
