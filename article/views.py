@@ -6,6 +6,7 @@ from article.models import Article
 from datetime import datetime
 from django.http import Http404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 # Create your views here.
 def home(request):
     posts = Article.objects.all()  #获取全部的Article对象
@@ -39,7 +40,7 @@ def about_me(request) :
 
 def search_tag(request, tag) :
     try:
-        post_list = Article.objects.filter(category_iexact = tag) #contains
+        post_list = Article.objects.filter(category__iexact = tag) #contains
     except Article.DoesNotExist :
         raise Http404
     return render(request, 'tag.html', {'post_list' : post_list})

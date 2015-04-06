@@ -1,4 +1,5 @@
 #coding: utf-8
+
 from django.db import models
 
 # Create your models here.
@@ -14,7 +15,7 @@ class Article(models.Model) :
         return "http://127.0.0.1:8000%s" % path
 
     def __unicode__(self) :
-        return self.title
+        return self.title.encode('utf-8')
 
     class Meta:  #按时间下降排序
         ordering = ['-date_time']
